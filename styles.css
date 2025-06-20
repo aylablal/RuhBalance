@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --text-color: #021f2a;
+    --bg-color: #fff;
+}
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 5rem;
+}
+
+section {
+    padding: 50px 100px;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 100px;
+    transition: 0.5s;
+    background: #B395D4;
+    height: 149px;
+}
+
+header.shadow {
+    background: #D6CDEA;
+}
+
+header.shadow .logo {
+    color: var(--bg-color);
+    box-shadow: 0 0 4px rgb(14 55 54 / 15%);
+}
+
+header.shadow.navbar a {
+    color: var(--bg-color);
+}
+
+header.shadow .navbar a::after {
+    background: var(--bg-color);
+}
+
+.logo {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bg-color);
+}
+
+.navbar {
+    display: flex;
+    column-gap: 5rem;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bg-color);
+}
+
+.navbar a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--bg-color);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.4s;
+}
+
+.navbar a:hover::after,
+.navbar .home-active::after {
+    width: 100%;
+}
+
+/* Menü ikonu sadece mobilde görünsün */
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100001;
+    color: var(--bg-color);
+    display: none; 
+}
+
+/* Hakkımızda */
+
+.about {
+    width: 100%;
+    height: 100vh;
+    background-color: #D6CDEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .content img {
+    width: 300px;
+    height: auto;
+    max-width: 100%;
+    margin-top: 50px;
+}
+
+.text {
+    width: 550px;
+    max-width: 100%;
+    padding: 10px;
+}
+
+.content {
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.text h1 {
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 13px;
+    text-transform: capitalize;
+}
+
+.text p {
+    color: #000;
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+button {
+    background-color: #fff;
+    color: #021f2a;
+    border: 2px solid transparent;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    border: 2px solid #D6CDEA;
+    transition: .4s;
+    cursor: pointer;
+}
+
+/* Responsive ayarlar */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 50px;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    section {
+        padding: 50px 30px;
+    }
+
+    .about {
+        flex-direction: column;
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .content img {
+        margin-top: 20px;
+    }
+
+    .text {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    /* Menü ikonu mobilde görünür */
+    #menu-icon {
+        display: block;
+    }
+
+    /* Navbar mobil görünüm */
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 100%;
+        background: #B395D4;
+        flex-direction: column;
+        text-align: center;
+        transition: right 0.4s ease;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .navbar li {
+        margin: 1.5rem 0;
+    }
+}
